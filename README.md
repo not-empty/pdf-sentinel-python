@@ -114,11 +114,11 @@ print(sentinel.file_analysis("samples/test.pdf", json_response=True))
                 "too_many_vector_ops:33035",
                 "raster_estimate_too_big:77760000"
             ],
-            "page_width": 612.0,
-            "page_height": 792.0,
-            "max_image_pixels": 0,
-            "max_vectors_operations": 58,
-            "max_raster_pixels": 8415000
+            "page_width": 2592.0,
+            "page_height": 1728.0,
+            "max_image_pixels": 354652,
+            "max_vectors_operations": 33035,
+            "max_raster_pixels": 77760000
         }
     ]
 }
@@ -139,38 +139,25 @@ print(sentinel.page_analysis("samples/test.pdf", 3, json_response=True))
 You can override safety thresholds per call:
 
 ```python
-sentinel.is_file_safe("samples/test.pdf", config={
-    "max_page_size": 1800,
-    "max_image_pixels": 10_000_000,
-    "max_vectors_operations": 1000,
-    "max_raster_pixels": 20_000_000
-})
+sentinel.is_file_safe(
+    "samples/test.pdf",
+    config={
+        "max_page_size": 1800,
+        "max_image_pixels": 10_000_000,
+        "max_vectors_operations": 1000,
+        "max_raster_pixels": 20_000_000
+    }
+)
 ```
 
 | Parameter                | Default    | Description                                   |
 | ------------------------ | ---------- | --------------------------------------------- |
 | `max_page_size`          | 2000       | Max page dimension in points                  |
-| `max_image_pixels`       | 20,000,000 | Max embedded image size (w × h)               |
+| `max_image_pixels`       | 20,000,000 | Max embedded image total pixels size (w × h)  |
 | `max_vectors_operations` | 1500       | Max allowed vector drawing operations         |
 | `max_raster_pixels`      | 30,000,000 | Estimated max rasterization size (at 300 dpi) |
 
 ---
-
-## Testing Example
-
-You can create a simple `test_sentinel.py` at the project root:
-
-```python
-import PDFSentinel
-
-sentinel = PDFSentinel()
-
-result = sentinel.is_file_safe("samples/test.pdf", json_response=True)
-print(result)
-```
-
----
-
 
 ## License
 
