@@ -33,7 +33,7 @@ This will install the library from PyPI and make it available to import in your 
 ### Simplified file safety check
 
 ```python
-import PDFSentinel
+from pdfsentinel import PDFSentinel
 
 sentinel = PDFSentinel()
 result = sentinel.is_file_safe("samples/test.pdf")
