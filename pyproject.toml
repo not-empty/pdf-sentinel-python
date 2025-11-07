@@ -1,0 +1,25 @@
+[project]
+name = "PDFSentinel"
+version = "1.0.0"
+authors = [
+  { name="Not Empty Foundation", email="dev@not-empty.org" },
+]
+description = "PDF Sentinel is a lightweight safety inspection library for PDF documents. It detects oversized, vector-heavy, or otherwise resource-intensive pages (like blueprints) that could slow down or crash OCR and pipelines."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "PyMuPDF>=1.26.6",
+]
+
+[project.urls]
+Homepage = "https://github.com/not-empty/pdf-sentinel-python"
+Issues = "https://github.com/not-empty/pdf-sentinel-python/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
