@@ -2,6 +2,7 @@ from __future__ import annotations
 import fitz
 from typing import Any, List, Tuple
 
+fitz.TOOLS.mupdf_display_errors(False)
 
 def open_document(path: str) -> "fitz.Document":
     return fitz.open(path)

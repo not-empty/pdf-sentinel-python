@@ -3,7 +3,6 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 from .helper import pymupdf
 
-
 class PDFSentinel:
     DEFAULT_CONFIG = {
         "max_page_size": 2000,
