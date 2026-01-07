@@ -45,7 +45,12 @@ class PDFSentinel:
         max_img_px_on_page = 0
         for img in images:
             xref = img[0]
-            info = pymupdf.extract_image(doc, xref)
+
+            try:
+                info = pymupdf.extract_image(doc, xref)
+            except Exception as e:
+                continue
+
             w = info.get("width", 0)
             h = info.get("height", 0)
             pix = w * h
