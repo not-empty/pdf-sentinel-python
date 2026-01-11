@@ -1,0 +1,8 @@
+services:
+  pdf-sentinel:
+    build:
+      context: ./
+      dockerfile: ./ops/Dockerfile
+    container_name: pdf-sentinel
+    volumes:
+      - ./:/code 
